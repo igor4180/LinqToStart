@@ -35,6 +35,8 @@ namespace LinqToStart
 								where c.COUNT >2
 								select new 
 							   { Id = c.Id, Name = c.Name, Price = c.Price };
+			var queryResults3 = 
+				db.goods.Where(c => c.COUNT > 2).Select(c => new Product(c.Id, c.Name, c.Price));
 			foreach (var item in queryResults)
 			{
 				Console.WriteLine(item);
@@ -43,8 +45,13 @@ namespace LinqToStart
 			{
 				Console.WriteLine(item);
 			}
+			foreach (var item in queryResults3)
+			{
+				Console.WriteLine(item);
+			}
 			Console.WriteLine("Press any key to complete...");
 			Console.ReadLine();
+
 		}
 	}
 }
